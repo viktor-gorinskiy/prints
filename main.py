@@ -26,7 +26,9 @@ for letter in text:
     if letter.isupper():
         with keyboard.pressed(Key.shift):
             keyboard.press(letter)
+            keyboard.release(letter)
     else:
         keyboard.press(letter)
+        keyboard.release(letter)
 
 
