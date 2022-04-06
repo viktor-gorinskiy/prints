@@ -9,10 +9,10 @@ keyboard = Controller()
 latter_timeout = 0.2
 enter_tab_timeout = 0.5
 
-# text = argv[1]
+text = argv[1]
 # timeaut = int(argv[2])
 
-text = "AeVoqCEO21m1KZ\tpassword\n"
+# text = str("AeVoqCEO21m1KZ\tpassword\n")
 
 timeaut = 10
 msg = f'The script is running!\nYou have {timeaut} seconds to put the cursor in the right place.'
