@@ -32,11 +32,9 @@ except ValueError:
 
 if len(argv) >= 4:
     latter_timeout = int(argv[3])
-    print('latter_timeout ==', latter_timeout)
 
 if len(argv) == 5:
     enter_tab_timeout = int(argv[4])
-    print('enter_tab_timeout ==', enter_tab_timeout)
 
 def sleep_bar(second):
     msg = f'The script is running!\nYou have {timeaut} seconds to put the cursor in the right place.'
