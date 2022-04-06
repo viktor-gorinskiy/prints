@@ -6,6 +6,9 @@ from progress.bar import IncrementalBar
 
 keyboard = Controller()
 
+latter_timeout = 0.1
+enter_tab_timeout = 0.5
+
 text = argv[1]
 timeaut = int(argv[2])
 
@@ -21,14 +24,27 @@ for item in range(timeaut):
 
 bar.finish()
 
-# keyboard.type(text)
-for letter in text:
-    if letter.isupper():
-        with keyboard.pressed(Key.shift):
-            keyboard.press(letter)
-            keyboard.release(letter)
-    else:
+def tab(letter):
+    keyboard.press(Key.tab)
+    keyboard.release(Key.tab)
+    time.sleep(enter_tab_timeout)
+
+def enter(letter):
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+    time.sleep(enter_tab_timeout)
+
+def upper(letter):
+    with keyboard.pressed(Key.shift):
         keyboard.press(letter)
         keyboard.release(letter)
+
+for letter in text:
+    time.sleep(latter_timeout)
+    if letter.isspace():
+        if letter == '\t': tab(letter)
+        if letter == '\n': enter(letter)
+    if letter.isupper(): upper(letter)
+    else: keyboard.press(letter)
 
 
